@@ -1,0 +1,30 @@
+<div class="app-container" [class.is-mobile]="mobileQuery.matches">
+    <mat-toolbar class="top-menu" color="primary">
+      <button mat-button title="Nav menu" class="hamburger" (click)="sidenav.toggle()">
+        <fa-icon icon="bars" size="lg"></fa-icon>
+      </button>
+  
+      <h2 class="site-header-title" routerLink="" title="Scraper">Scraper</h2>
+      <span class="fill-remaining-space"></span>
+    </mat-toolbar>
+  
+    <mat-sidenav-container role="main" class="sidenav-container">
+      <mat-sidenav #sidenav class="sidenav" [mode]="sideNavMode" [opened]="isSideNavOpen" [fixedInViewport]="mobileQuery.matches"
+        fixedTopGap="55" (swipeleft)="sidenav.close()">
+  
+        <scraper-nav-menu [menu]="sideNavMenu"></scraper-nav-menu>
+  
+        <div class="fill-remaining-space"></div>
+        <div class="logo-container">
+          <span class="fill-remaining-space"></span>
+          <span>&nbsp;&copy; {{currentYear}}</span>
+          <span class="fill-remaining-space"></span>
+        </div>
+      </mat-sidenav>
+  
+      <mat-sidenav-content class="sidenav-content" role="content" (swiperight)="sidenav.open()">
+        <router-outlet></router-outlet>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
+  

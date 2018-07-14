@@ -1,0 +1,80 @@
+@import '~@angular/material/theming';
+@mixin navigation-custom-styles($theme) {
+    $primary: map-get($theme, primary);
+    $accent: map-get($theme, accent);
+    $warn: map-get($theme, warn);
+    $navigation-header-color: mat-color($primary, darker);
+    $navigation-link-color: mat-color($primary);
+    $navigation-link-hover-color: mat-color($primary, lighter);
+    mat-expansion-panel.nav-panel,
+    mat-expansion-panel.nav-panel:not(.mat-expanded) {
+        margin: 0px !important;
+        mat-expansion-panel {
+            margin-top: 2px !important;
+            margin-left: 5px !important;
+        }
+        mat-expansion-panel-header.nav-panel-header {
+            background-color: $navigation-header-color;
+            color: white;
+            font-size: 14px;
+            font-weight: 500;
+            text-align: center;
+            text-transform: uppercase;
+            max-height: 33px !important;
+            &:hover,
+            &:focus,
+            &:not([aria-disabled='true']):hover {
+                background-color: $navigation-header-color;
+            }
+            mat-panel-title.nav-panel-title {
+                color: white;
+            }
+            .mat-expansion-indicator {
+                display: flex;
+            }
+        }
+        .mat-expansion-panel-header-description,
+        .mat-expansion-panel-header-title {
+            margin-right: 0px !important;
+            flex-direction: column !important;
+        }
+        .mat-expansion-panel-body {
+            padding: 0px;
+        }
+    }
+    ul.nav-links {
+        padding: 0;
+        margin: 0;
+        a {
+            li {
+                color: black;
+                cursor: pointer;
+                display: block;
+                font-size: 14px;
+                padding: 10px 15px;
+                position: relative;
+                width: 100%;
+            }
+            &.active {
+                li {
+                    font-weight: bold;
+                    background-color: $navigation-link-color;
+                    color: white;
+                }
+            }
+            &:hover:not(.active) {
+                li {
+                    background-color: $navigation-link-hover-color;
+                    font-weight: normal;
+                }
+            }
+        }
+    }
+    .nav-title {
+        text-align: left !important;
+    }
+    .nav-align-vertical {
+        display: flex !important;
+        align-items: center !important;
+    }
+}
