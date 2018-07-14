@@ -1,3 +1,7 @@
+
+# Base_Angular6_Project
+A basic angular 6 project
+
 # WebApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
